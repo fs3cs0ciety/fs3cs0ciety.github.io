@@ -21,8 +21,8 @@ tags: [Reverse Engineering]
  * We see `NtSetInformationThread` and `NtQueryInformationThread` when scrolling through this main function code block and we know whenever these api's are called there most likely causing the debugger to stop debugging the process and cause it to crash the debugger. We know `NtSetInformationThread` has a parameter called `THREADINFOCLASS`, which contains `ThreadHideFromDebugger = 0x11`.
  
  * Why the fuck would windows let us use these api's??? Well, see here is why it exists: Whenever you attach a debugger to a remote process a new thread is created and if it was a normal thread the debugger would endlessly loop as it attempts to stop its own execution. Under the hood when a debugging thread is created Windows calls `NtSetInformationThread` with the flag set to `(1)` allowing the process to be debugged and continue as aspected. 
-
 ---
+
 ## Example of some c++ code for this method being used:
 
 ```c++
@@ -126,6 +126,6 @@ bool threadfinder::driver_range_check() {
 
 * [SystemThreadFinder](https://github.com/weak1337/SystemThreadFinder/tree/main)
 * [Guided Hacking](https://guidedhacking.com)
-* [Humza]https://humzak711.github.io/
+* [Humza](https://humzak711.github.io/)
 
 ---
