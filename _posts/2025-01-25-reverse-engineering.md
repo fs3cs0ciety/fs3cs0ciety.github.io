@@ -7,7 +7,7 @@ tags: [Reverse Engineering]
 
 # ANTI-DEBUG PE REVERSE-ENGINEERING
 
-* First off let me just say that ive been up for days trying to solve this fuckin crackme humza made. He is fucked for making this PE wicked in a debugger, and it was my first attempt at anti-debug analysis. The learning process was amazing though, cant knock that.
+First off let me just say that ive been up for days trying to solve this fuckin crackme humza made. He is fucked for making this PE wicked in a debugger, and it was my first attempt at anti-debug analysis. The learning process was amazing though, cant knock that.
 
 ---
 
@@ -15,9 +15,11 @@ tags: [Reverse Engineering]
 
 ![Screenshot 2024-12-24 152241](https://github.com/user-attachments/assets/246b148e-a888-4914-bfab-c45527c0cf51)
 
- * Bam there it is staring back at us the reason our debugger goes to shit when executing this executable. So basically, whenever there is a debugger attached to the process when executing it, the program will know it is being debugged by a debugger and use an API call like `IsDebuggerPresent()` and `CheckRemoteDebuggerPresent()`; in kernel32.dll.
- * We see `NtSetInformationThread` and `NtQueryInformationThread` when scrolling through this main function code block and we know whenever these api's are called there most likely causing the debugger to stop debugging the process and cause it to crash the debugger. We know `NtSetInformationThread` has a parameter called `THREADINFOCLASS`, which contains `ThreadHideFromDebugger = 0x11`.
- * Why the fuck would windows let us use these api's??? Well, see here is why it exists: Whenever you attach a debugger to a remote process a new thread is created and if it was a normal thread the debugger would endlessly loop as it attempts to stop its own execution. Under the hood when a debugging thread is created Windows calls `NtSetInformationThread` with the flag set to `(1)` allowing the process to be debugged and continue as aspected. 
+Bam there it is staring back at us the reason our debugger goes to shit when executing this executable. So basically, whenever there is a debugger attached to the process when executing it, the program will know it is being debugged by a debugger and use an API call like `IsDebuggerPresent()` and `CheckRemoteDebuggerPresent()`; in kernel32.dll.
+
+We see `NtSetInformationThread` and `NtQueryInformationThread` when scrolling through this main function code block and we know whenever these api's are called there most likely causing the debugger to stop debugging the process and cause it to crash the debugger. We know `NtSetInformationThread` has a parameter called `THREADINFOCLASS`, which contains `ThreadHideFromDebugger = 0x11`.
+
+Why the fuck would windows let us use these api's??? Well, see here is why it exists: Whenever you attach a debugger to a remote process a new thread is created and if it was a normal thread the debugger would endlessly loop as it attempts to stop its own execution. Under the hood when a debugging thread is created Windows calls `NtSetInformationThread` with the flag set to `(1)` allowing the process to be debugged and continue as aspected. 
 ---
 
 ### Example of some c++ code for this method being used:
@@ -76,11 +78,11 @@ int main(void)
 
 ### Finding The Hidden System Threads!
 
-* Well now I know, ok I need to find this hidden thread somehow ... Low and behold c++ skills and some help from the lovely GuidedHacking forums. We can create a tool that will basiclly get system threads by using GetSystemTime, which is a funcion that retrieves sys timing info. The tool takes two snapshots of the timing info and compares them to spot if the difference is to large and flags them.
+Well now I know, ok I need to find this hidden thread somehow ... Low and behold c++ skills and some help from the lovely GuidedHacking forums. We can create a tool that will basiclly get system threads by using GetSystemTime, which is a funcion that retrieves sys timing info. The tool takes two snapshots of the timing info and compares them to spot if the difference is to large and flags them.
 
-* In the code we are going to pass three FILETIME pointers to the function: idle time, kernel time, and user time. We must initialize two SYSTEM_PROCESS_INFORMATION structs that store info about a process, such as the NUMBER OF THREADS USED!!!!
+In the code we are going to pass three FILETIME pointers to the function: idle time, kernel time, and user time. We must initialize two SYSTEM_PROCESS_INFORMATION structs that store info about a process, such as the NUMBER OF THREADS USED!!!!
 
-* Mainly The two snapshots are used to calculate any spotted differences between the timing info by iterating through the process of both snapshots and matches them. The CPU time is being stored and then we are tracking the timing differences for each running process and then storing the overall CPU time difference by adding execution time from hidden processes. There is specific thresholds that cannot be exceeded or you will be flagged for hiding system threads.
+Mainly The two snapshots are used to calculate any spotted differences between the timing info by iterating through the process of both snapshots and matches them. The CPU time is being stored and then we are tracking the timing differences for each running process and then storing the overall CPU time difference by adding execution time from hidden processes. There is specific thresholds that cannot be exceeded or you will be flagged for hiding system threads.
 ---
 
 ---
@@ -109,7 +111,7 @@ bool threadfinder::driver_range_check() {
 ---
 ### 
 
- * This function retrieves the process list and loops through all the processes until the next process isn't 0. It checks to make sure that the process ID = 4, indicating that it is indeed a sys process. if it is equal to 4, it iterates through every thread in the process. is_in_range is then called to indicate if the start address of the thread is valid yk, and if the drivers threads do not fall into place, meaning it is indeed hidden bud-_-. 
+This function retrieves the process list and loops through all the processes until the next process isn't 0. It checks to make sure that the process ID = 4, indicating that it is indeed a sys process. if it is equal to 4, it iterates through every thread in the process. is_in_range is then called to indicate if the start address of the thread is valid yk, and if the drivers threads do not fall into place, meaning it is indeed hidden bud -_-. 
 ---
 
 ### Defeating main.exe 
