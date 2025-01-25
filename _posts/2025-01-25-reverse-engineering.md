@@ -104,6 +104,7 @@ bool threadfinder::driver_range_check() {
 }
 ```
 
+---
 - This function retrieves the process list and loops through all the processes until the next process isn't 0. It checks to make sure that the process ID = 4, indicating that it is indeed a sys process. if it is equal to 4, it iterates through every thread in the process. is_in_range is then called to indicate if the start address of the thread is valid yk, and if the drivers threads do not fall into place, meaning it is indeed hidden bud-_-.
 ---
 ### Defeating main.exe 
