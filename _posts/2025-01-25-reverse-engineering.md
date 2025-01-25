@@ -124,6 +124,8 @@ bool threadfinder::driver_range_check() {
 ---
 # Credits/Sources
 
-- [SystemThreadFinder](https://github.com/weak1337/SystemThreadFinder/tree/main)
-- [Guided Hacking](https://guidedhacking.com)
-- [Humza]https://humzak711.github.io/
+* [SystemThreadFinder](https://github.com/weak1337/SystemThreadFinder/tree/main)
+* [Guided Hacking](https://guidedhacking.com)
+* [Humza]https://humzak711.github.io/
+
+---
