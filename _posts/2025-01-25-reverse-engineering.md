@@ -20,7 +20,7 @@ tags: [Reverse Engineering]
  * Why the fuck would windows let us use these api's??? Well, see here is why it exists: Whenever you attach a debugger to a remote process a new thread is created and if it was a normal thread the debugger would endlessly loop as it attempts to stop its own execution. Under the hood when a debugging thread is created Windows calls `NtSetInformationThread` with the flag set to `(1)` allowing the process to be debugged and continue as aspected. 
 ---
 
-## Example of some c++ code for this method being used:
+### Example of some c++ code for this method being used:
 
 ```c++
 /*Timb3r's Code From GH*/
@@ -106,7 +106,7 @@ bool threadfinder::driver_range_check() {
 
 - This function retrieves the process list and loops through all the processes until the next process isn't 0. It checks to make sure that the process ID = 4, indicating that it is indeed a sys process. if it is equal to 4, it iterates through every thread in the process. is_in_range is then called to indicate if the start address of the thread is valid yk, and if the drivers threads do not fall into place, meaning it is indeed hidden bud-_-.
 ---
-## Defeating main.exe 
+### Defeating main.exe 
 
 - Well we see that the tool works.
 
@@ -119,7 +119,7 @@ bool threadfinder::driver_range_check() {
 
 
 ---
-# Credits/Sources
+### Credits/Sources
 
 * [SystemThreadFinder](https://github.com/weak1337/SystemThreadFinder/tree/main)
 * [Guided Hacking](https://guidedhacking.com)
