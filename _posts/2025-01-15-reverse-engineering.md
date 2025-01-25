@@ -20,6 +20,7 @@ Bam there it is staring back at us the reason our debugger goes to shit when exe
 We see `NtSetInformationThread` and `NtQueryInformationThread` when scrolling through this main function code block and we know whenever these api's are called there most likely causing the debugger to stop debugging the process and cause it to crash the debugger. We know `NtSetInformationThread` has a parameter called `THREADINFOCLASS`, which contains `ThreadHideFromDebugger = 0x11`.
 
 Why the fuck would windows let us use these api's??? Well, see here is why it exists: Whenever you attach a debugger to a remote process a new thread is created and if it was a normal thread the debugger would endlessly loop as it attempts to stop its own execution. Under the hood when a debugging thread is created Windows calls `NtSetInformationThread` with the flag set to `(1)` allowing the process to be debugged and continue as aspected. 
+
 ---
 
 ### Example of some c++ code for this method being used:
@@ -83,6 +84,7 @@ Well now I know, ok I need to find this hidden thread somehow ... Low and behold
 In the code we are going to pass three FILETIME pointers to the function: idle time, kernel time, and user time. We must initialize two SYSTEM_PROCESS_INFORMATION structs that store info about a process, such as the NUMBER OF THREADS USED!!!!
 
 Mainly The two snapshots are used to calculate any spotted differences between the timing info by iterating through the process of both snapshots and matches them. The CPU time is being stored and then we are tracking the timing differences for each running process and then storing the overall CPU time difference by adding execution time from hidden processes. There is specific thresholds that cannot be exceeded or you will be flagged for hiding system threads.
+
 ---
 
 ---
@@ -112,16 +114,17 @@ bool threadfinder::driver_range_check() {
 ### 
 
 This function retrieves the process list and loops through all the processes until the next process isn't 0. It checks to make sure that the process ID = 4, indicating that it is indeed a sys process. if it is equal to 4, it iterates through every thread in the process. is_in_range is then called to indicate if the start address of the thread is valid yk, and if the drivers threads do not fall into place, meaning it is indeed hidden bud -_-. 
+
 ---
 
 ### Defeating main.exe 
 
-* Well we see that the tool works.
+Well we see that the tool works.
 
 
 ![Screenshot 2024-12-24 171602](https://github.com/user-attachments/assets/5d6ea3a3-8f3c-4049-ba43-c062dcbdba09)
 
-* Next I started the program along with the main.exe as well and retrieved the flag!!!
+Next I started the program along with the main.exe as well and retrieved the flag!!!
 
 ![Screenshot 2024-12-24 172312](https://github.com/user-attachments/assets/dd0c127c-814b-4a43-afc9-0c1e70cecb3c)
 
