@@ -83,6 +83,7 @@ int main(void)
 * Mainly The two snapshots are used to calculate any spotted differences between the timing info by iterating through the process of both snapshots and matches them. The CPU time is being stored and then we are tracking the timing differences for each running process and then storing the overall CPU time difference by adding execution time from hidden processes. There is specific thresholds that cannot be exceeded or you will be flagged for hiding system threads.
 ---
 
+---
 ### Driver Range Check Function
 ```c++
 bool threadfinder::driver_range_check() {
@@ -103,6 +104,7 @@ bool threadfinder::driver_range_check() {
 	return false;
 }
 ```
+---
 
 ---
 * This function retrieves the process list and loops through all the processes until the next process isn't 0. It checks to make sure that the process ID = 4, indicating that it is indeed a sys process. if it is equal to 4, it iterates through every thread in the process. is_in_range is then called to indicate if the start address of the thread is valid yk, and if the drivers threads do not fall into place, meaning it is indeed hidden bud-_-. 
