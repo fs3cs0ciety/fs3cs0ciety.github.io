@@ -19,7 +19,7 @@ title: MalDevMedia # the main title
 tagline: Blog-series about literally whatever! # it will display as the subtitle
 
 description: >- # used by seo meta and the atom feed
-  Guides/Writeups about topics such as Windows anti-debug reverse engineering, linux kernel modules posing as rootkits, and the list goes on ...
+  rootkit, linux, windows, blog, malware, kernel, C, c++, cpp, go, reverse engineering
 
 # Fill in the protocol & hostname for your site.
 # E.g. 'https://username.github.io', note that it does not end with a '/'.
