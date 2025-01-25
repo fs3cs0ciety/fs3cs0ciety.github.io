@@ -51,7 +51,7 @@ Rasta has the following core capabilities:
 
 ### Resetting the `taint_mask` to 0
 
-<p align="center"><img src=".img/taint_mask.jpg"></p>
+![taintmask](https://github.com/fs3cs0ciety/linux-rootkit/blob/main/.img/taint_mask.jpg?raw=true)
 
 * This demonstrates how Rasta manipulates the kernel's taint mask, effectively resetting it to 0.
 
@@ -59,7 +59,7 @@ Rasta has the following core capabilities:
 
 ### Hiding `taint` from `/dev/kmsg`
 
-<p align="center"><img src=".img/dmesg.jpg"></p>
+![taint](https://github.com/fs3cs0ciety/linux-rootkit/blob/main/.img/dmesg.jpg?raw=true)
 
 * Here, the `taint` message is hidden from `/dev/kmsg`, meaning any errors or warnings about the module loading won’t appear in the kernel log.
 
@@ -67,7 +67,7 @@ Rasta has the following core capabilities:
 
 ### Hiding All of Our Functions from `/proc/kallsyms` and `/sys/kernel/tracing/touched_functions`
 
-<p align="center"><img src=".img/hide.jpg"></p>
+![antitrace](https://github.com/fs3cs0ciety/linux-rootkit/blob/main/.img/hide.jpg?raw=true)
 
 * The `hooked_read` function is used to hide Rasta's functions from `/proc/kallsyms` and `/sys/kernel/tracing/touched_functions`. This ensures that the functions used by Rasta are never exposed to user space.
 
@@ -75,7 +75,7 @@ Rasta has the following core capabilities:
 
 ### Setting All IDs to 0
 
-<p align="center"><img src=".img/root.jpg"></p>
+![root](https://github.com/fs3cs0ciety/linux-rootkit/blob/main/.img/root.jpg?raw=true)
 
 * By using the `hooked_kill` syscall, Rasta sets all process IDs (UIDs, GIDs, etc.) to 0, effectively giving the kernel module root privileges.
 
@@ -83,7 +83,7 @@ Rasta has the following core capabilities:
 
 ### Adding/Removing the Module from the `/proc/modules` List
 
-<p align="center"><img src=".img/lsmod.jpg"></p>
+![lsmod](https://github.com/fs3cs0ciety/linux-rootkit/blob/main/.img/lsmod.jpg?raw=true)
 
 * This shows how Rasta can add or remove itself from the `/proc/modules` list. The module can be removed to hide its presence from userspace, while still being active in the kernel.
 
@@ -91,7 +91,7 @@ Rasta has the following core capabilities:
 
 ### Hiding Everything Named `rasta`
 
-<p align="center"><img src=".img/getdents64.jpg"></p>
+![hideDir](https://github.com/fs3cs0ciety/linux-rootkit/blob/main/.img/getdents64.jpg?raw=true)
 
 * The `getdents64` hook hides all files and directories named `rasta` from userspace. This is a stealth technique to ensure that the module’s presence is not detected through file listings or directory searches.
 
@@ -101,7 +101,7 @@ Rasta has the following core capabilities:
 
 ### Hiding Processes' PIDs
 
-<p align="center"><img src=".img/PID.jpg"></p>
+![PID](https://github.com/fs3cs0ciety/linux-rootkit/blob/main/.img/PID.jpg?raw=true)
 
 * The `getdents64` and `kill` hooks are also used to hide the process IDs (PIDs) of userspace processes. Currently, there are some issues with completely hiding PIDs, but SIGKILL is sent to the process.
 
@@ -109,7 +109,7 @@ Rasta has the following core capabilities:
 
 ### Hiding TCP Connections on Port 8081
 
-<p align="center"><img src=".img/tcp.jpg"></p>
+![tcp](https://github.com/fs3cs0ciety/linux-rootkit/blob/main/.img/tcp.jpg?raw=true)
 
 * One of the key features of Rasta is the ability to **hide network connections**. Specifically, we hook into two critical APIs: `tcp4_seq_show` and `tcp6_seq_show` using **ftrace**. These two functions are responsible for displaying information about IPv4 and IPv6 TCP connections in userspace.
 
@@ -124,7 +124,7 @@ Rasta has the following core capabilities:
 
 ### Reverse Shell
 
-<p align="center"><img src=".img/tcp.jpg"></p>
+![shell](https://github.com/fs3cs0ciety/linux-rootkit/blob/main/.img/tcp.jpg?raw=true)
 
 * This is a simple reverse shell that listens for connections on `localhost`. The IP address can be easily changed in `kprobe/rev-shell.h` to connect to an external host.
 * The reverse shell utilizes the **hidden network connection** on port 8081, which is stealthed by Rasta's ftrace hook, allowing for covert communication.
@@ -229,12 +229,12 @@ static notrace asmlinkage ssize_t hooked_read(const struct pt_regs *regs) {
 
 ### Protecting Ftrace From Being Disabled and Spoofing the read to always return a zero when on. Basically Masking Ftrace Being Enabled.
 
-<p align="center"><img src=".img/ftrace.jpg"></p>
+![ftrace](https://github.com/fs3cs0ciety/linux-rootkit/blob/main/.img/ftrace.jpg?raw=true)
 
 ## Extra
 
 > [!Important]  
-> Not responsible for anything done with this. This does not do anything really malicious honestly and If you're dumb enough to think this is FUD malware, just go away. 😑
+> Not responsible for anything done with this. This does not do anything really malicious honestly and If you're dumb enough to think this is FUD malware, just go away.
 
 ### Resources:
 * [Detect-Rootkit-Cheatsheet](https://github.com/MatheuZSecurity/detect-lkm-rootkit-cheatsheet)
