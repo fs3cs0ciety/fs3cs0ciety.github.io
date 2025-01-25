@@ -107,17 +107,19 @@ bool threadfinder::driver_range_check() {
 ---
 
 ---
-* This function retrieves the process list and loops through all the processes until the next process isn't 0. It checks to make sure that the process ID = 4, indicating that it is indeed a sys process. if it is equal to 4, it iterates through every thread in the process. is_in_range is then called to indicate if the start address of the thread is valid yk, and if the drivers threads do not fall into place, meaning it is indeed hidden bud-_-. 
+### 
+
+ * This function retrieves the process list and loops through all the processes until the next process isn't 0. It checks to make sure that the process ID = 4, indicating that it is indeed a sys process. if it is equal to 4, it iterates through every thread in the process. is_in_range is then called to indicate if the start address of the thread is valid yk, and if the drivers threads do not fall into place, meaning it is indeed hidden bud-_-. 
 ---
 
 ### Defeating main.exe 
 
-- Well we see that the tool works.
+* Well we see that the tool works.
 
 
 ![Screenshot 2024-12-24 171602](https://github.com/user-attachments/assets/5d6ea3a3-8f3c-4049-ba43-c062dcbdba09)
 
-- Next I started the program along with the main.exe as well and retrieved the flag!!!
+* Next I started the program along with the main.exe as well and retrieved the flag!!!
 
 ![Screenshot 2024-12-24 172312](https://github.com/user-attachments/assets/dd0c127c-814b-4a43-afc9-0c1e70cecb3c)
 
