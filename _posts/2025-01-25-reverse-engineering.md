@@ -15,11 +15,8 @@ tags: [Reverse Engineering]
 
 ![Screenshot 2024-12-24 152241](https://github.com/user-attachments/assets/246b148e-a888-4914-bfab-c45527c0cf51)
 
-
  * Bam there it is staring back at us the reason our debugger goes to shit when executing this executable. So basically, whenever there is a debugger attached to the process when executing it, the program will know it is being debugged by a debugger and use an API call like `IsDebuggerPresent()` and `CheckRemoteDebuggerPresent()`; in kernel32.dll.
-
  * We see `NtSetInformationThread` and `NtQueryInformationThread` when scrolling through this main function code block and we know whenever these api's are called there most likely causing the debugger to stop debugging the process and cause it to crash the debugger. We know `NtSetInformationThread` has a parameter called `THREADINFOCLASS`, which contains `ThreadHideFromDebugger = 0x11`.
- 
  * Why the fuck would windows let us use these api's??? Well, see here is why it exists: Whenever you attach a debugger to a remote process a new thread is created and if it was a normal thread the debugger would endlessly loop as it attempts to stop its own execution. Under the hood when a debugging thread is created Windows calls `NtSetInformationThread` with the flag set to `(1)` allowing the process to be debugged and continue as aspected. 
 ---
 
