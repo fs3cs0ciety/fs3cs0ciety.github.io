@@ -1,7 +1,7 @@
 ---
 title: "Reverse Engineering"
 date:  2025-01-15 00:00:00 +0000
-categories: [Reverse Engineering, Windows]
+categories: [Reverse Engineering, EXE]
 tags: [anti-debug, reverse-engineering]
 ---
 
