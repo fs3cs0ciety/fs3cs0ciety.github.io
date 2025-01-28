@@ -1,5 +1,5 @@
 ---
-title: "Reverse Engineering"
+title: "Reverse Engineering Humza's Crackme"
 date:  2025-01-15 00:00:00 +0000
 categories: [Reverse Engineering, EXE]
 tags: [anti-debug, reverse-engineering]
