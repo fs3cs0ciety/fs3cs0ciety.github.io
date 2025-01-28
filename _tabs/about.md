@@ -1,3 +1,9 @@
+---
+layout: about
+icon: fas fa-about
+order: 4
+---
+
 I'm a self-taught passionate Low-Level Programmer from the United States 🇺🇸
 
 **About me**
