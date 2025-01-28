@@ -1,8 +1,8 @@
 ---
 title: "Linux Rootkit"
 date: 2025-01-25 00:00:00 +0000
-categories: [Linux Rootkit]
-tags: [Linux Rootkit]
+categories: [Rootkits, Linux]
+tags: [Linux Rootkit, malware]
 ---
 
 # RastaMon Linux Rootkit
