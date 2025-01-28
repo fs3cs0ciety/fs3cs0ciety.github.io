@@ -1,7 +1,7 @@
 ---
 layout: about
 icon: fas fa-about
-order: 4
+order: 0
 ---
 
 I'm a self-taught passionate Low-Level Programmer from the United States 🇺🇸
