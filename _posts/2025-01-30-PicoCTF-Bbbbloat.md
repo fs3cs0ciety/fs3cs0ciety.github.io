@@ -13,7 +13,7 @@ tags: [picoctf, reverse-engineering, crackmes]
 
 * Immediatly looking into `main()`, we see a comparison happening
 
-```nasm
+```c
 000014d0        if (var_48 != 0x86187)
 0000158a            puts(str: "Sorry, that's not it!")
 ```
