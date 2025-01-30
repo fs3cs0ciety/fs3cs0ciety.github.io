@@ -1,11 +1,11 @@
 ---
-title: "Linux Rootkit"
+title: "Linux Kernel Module POC"
 date: 2025-01-25 00:00:00 +0000
-categories: [Rootkits, Linux]
-tags: [Linux Rootkit, malware]
+categories: [Lkm's]
+tags: [LKM, malware, kernel-hacking]
 ---
 
-# RastaMon Linux Rootkit
+# RastaMon Linux Kernel Module
 🇯🇲
 
 *Simple POC of a Linux kernel module for latest kernel version that utilizes both ftrace and kprobes and poses as a rootkit to stealthily hook its syscalls and leave no trace!*
