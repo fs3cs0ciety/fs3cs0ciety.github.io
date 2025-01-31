@@ -3,6 +3,7 @@ title: Bbbbloat PicoCTF Challenge
 date: 2025-01-30 00:00:00 +0000
 categories: [Reverse Engineering, PicoCTF]
 tags: [picoctf, reverse-engineering, crackmes]
+description: Reverse engineering a stripped linux executable
 ---
 
 ## Always Do One Of These Before Anything
