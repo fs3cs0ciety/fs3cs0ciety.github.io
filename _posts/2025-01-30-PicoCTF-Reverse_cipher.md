@@ -1,7 +1,7 @@
 ---
 title: Reverse Cipher PicoCTF 
 date: 2025-01-30 00:00:00 +0000
-categories: [Reverse-Engineering, PicoCTF]
+categories: [Reverse Engineering, PicoCTF]
 tags: [picoctf, crackme, reverse-engineering]
 description: We have recovered a binary and a text file. Can you reverse the flag?
 ---
