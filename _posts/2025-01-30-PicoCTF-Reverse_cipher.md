@@ -1,5 +1,5 @@
 ---
-title: Reverse Engineering Reverse_Cipher PicoCTF 
+title: Reverse Engineering Reverse Cipher PicoCTF 
 date: 2025-01-30 00:00:00 +0000
 categories: [Reverse-Engineering, PicoCTF]
 tags: [picoctf, crackme, reverse-engineering]
@@ -18,16 +18,16 @@ description: We have recovered a binary and a text file. Can you reverse the fla
 ### The Cipher Logic
 
   ```c
-    for (int32_t i_1 = 8; i_1 s<= 0x16; i_1 += 1)
-    char rax_7 = *(&buf + sx.q(i_1))
-    char var_9_3
+  for (int32_t i_1 = 8; i_1 s<= 0x16; i_1 += 1)
+  char rax_7 = *(&buf + sx.q(i_1))
+  char var_9_3
             
-      if ((i_1 & 1) != 0)
-          var_9_3 = rax_7 - 2
-       else
-          var_9_3 = rax_7 + 5
+  if ((i_1 & 1) != 0)
+     var_9_3 = rax_7 - 2
+  else
+     var_9_3 = rax_7 + 5
             
-          fputc(c: sx.d(var_9_3), fp: rev_file)
+  fputc(c: sx.d(var_9_3), fp: rev_file)
   ```
 
 ### Crafting up a little c program to reverse this sucka and print the flag!!
