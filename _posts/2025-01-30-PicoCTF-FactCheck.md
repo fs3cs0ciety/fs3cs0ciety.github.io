@@ -3,6 +3,7 @@ title: FactCheck PicoCTF Challenge
 date: 2025-01-30 00:00:00 +0000
 categories: [Reverse Engineering, PicoCTF]
 tags: [picoctf, reverse-engineering, crackmes]
+description: Reverse Engineering The easiest binary in the world, lol! Load up the ctf and follow along.
 ---
 
 # By Far The Easiest Crackme Ever To Exist
