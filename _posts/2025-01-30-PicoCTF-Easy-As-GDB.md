@@ -3,6 +3,7 @@ title: Easy As GDB PicoCTF Challenge
 date: 2025-01-30 00:00:00 +0000
 categories: [Reverse Engineering, PicoCTF]
 tags: [picoctf, reverse-engineering, crackmes]
+description: Reverse engineering and bruteforcing linux binaries
 ---
 
 # Static Analysis
