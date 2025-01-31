@@ -19,7 +19,7 @@ tags: [picoctf, reverse-engineering, crackmes]
 
 * This checks our flag hence the reason it is in an `if` statement comparing it to 1 `true` in the `main` function.
 
-### Comparing the lower 8 bits of `rax` to the lower 8 bits of `rdx`
+### Comparing the lowest 8 bits of `rax` to the lowest 8 bits of `rdx`
 
 ![screenshot_30012025_194915](https://github.com/user-attachments/assets/d8f11837-2e45-4e0c-9590-b88b0695bd47)
 
