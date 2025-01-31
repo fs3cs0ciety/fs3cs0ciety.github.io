@@ -14,6 +14,7 @@ description: We have recovered a binary and a text file. Can you reverse the fla
 ![screenshot_30012025_231146](https://github.com/user-attachments/assets/87927ced-9045-4bfd-8e64-e3b24c36e2aa)
 
 * Nice we see two comparisons right off the bat, `if (flag_file == 0)` and `if (rev_file == 0)`.
+* We can see that the cipher is happening inside of the second `for` loop.
   
 ### The Cipher Logic
 
