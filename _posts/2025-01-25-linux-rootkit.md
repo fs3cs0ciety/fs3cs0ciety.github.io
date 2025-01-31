@@ -1,7 +1,7 @@
 ---
 title: "Linux Kernel Module POC"
 date: 2025-01-25 00:00:00 +0000
-categories: [Lkm's]
+categories: [Linux, Kernel Hacking]
 tags: [LKM, malware, kernel-hacking]
 description: Simple POC of a Linux kernel module for latest kernel version that utilizes both ftrace and kprobes and poses as a rootkit to stealthily hook its syscalls and leave no trace!
 ---
