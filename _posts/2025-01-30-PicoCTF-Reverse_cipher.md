@@ -1,5 +1,5 @@
 ---
-title: Reverse Engineering Reverse Cipher PicoCTF 
+title: Reverse Cipher PicoCTF 
 date: 2025-01-30 00:00:00 +0000
 categories: [Reverse-Engineering, PicoCTF]
 tags: [picoctf, crackme, reverse-engineering]
