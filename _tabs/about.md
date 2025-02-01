@@ -8,7 +8,7 @@ I'm a self-taught passionate Low-Level Programmer from the United States 🇺�
 **About me**
 
 icon: fas fa-info-circle
-order: 4- 📈 Aspiring Security Software Engineer for x86_64 CPU architectures both ![AMD Badge](https://img.shields.io/badge/AMD-ED1C24?logo=amd&logoColor=fff&style=for-the-badge) / ![Intel Badge](https://img.shields.io/badge/Intel-0071C5?logo=intel&logoColor=fff&style=for-the-badge)
+order: 4- 📈 Aspiring Security Software Engineer for x86_64/amd_64 CPU architectures 
 - :japanese_goblin: Malware Developer/Mid-Reverse Engineer(getting better is all that matters)
 - :muscle: The C Programming Language
 - 💬 Ask me about anything [here!](https://github.com/fs3cs0ciety/fs3cs0ciety/issues)
