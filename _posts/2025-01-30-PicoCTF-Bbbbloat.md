@@ -15,8 +15,8 @@ description: Reverse engineering a stripped linux executable
 * Immediatly looking into `main()`, we see a comparison happening
 
 ```c
-000014d0        if (var_48 != 0x86187)
-0000158a            puts(str: "Sorry, that's not it!")
+if (var_48 != 0x86187)
+    puts(str: "Sorry, that's not it!")
 ```
 
 * Nice, so if `var_48` is not qual to `0x86187` call `puts()`. Instresting ...
